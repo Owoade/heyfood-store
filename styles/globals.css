@@ -15,6 +15,22 @@ a {
   box-sizing: border-box;
 }
 
+.search-bar {
+  width: 400px;
+  padding: .8em 3em;
+  border-radius: 20px;
+  border-style: none;
+  background-color: whitesmoke;
+  display: block;
+}
+
+@media(max-width: 600px){
+  .search-bar {
+    width: 100%;
+    padding: 1.2em 3em;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
