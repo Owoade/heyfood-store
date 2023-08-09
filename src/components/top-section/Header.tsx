@@ -285,7 +285,7 @@ function CheckoutDrawer( {disclosure}:DrawerProps){
               bgcolor: "black",
               color: "white"
             }}
-            onClick={()=> handleClick()}
+            onClick={ async ()=> await handleClick()}
             >
               Pay  ₦2800
             </Button>
