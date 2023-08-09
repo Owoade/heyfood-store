@@ -14,6 +14,7 @@ function Slider({ children, ...rest }: SliderProps) {
       {...rest}
       sx={{
         overflowX: "auto",
+        overflowY: "hidden"
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, BoxProps, Typography } from "@mui/material";
 import Image from "@components/shared/Image";
 import Slider from "@components/shared/Slider";
 import Flex from "@components/shared/Flex";
@@ -10,14 +10,17 @@ import { IStore } from "utils/mock-data";
 
 type StoreProps = {
     store: IStore;
+    width?: string
   };
   
-  export function Store({ store }: StoreProps) {
+  export function Store({ store, width}: StoreProps ) {
     const date = new Date();
+
+    store.closing_time = store.closing_time ?? Infinity;
   
     const current_hour = date.getHours();
   
-    const HAS_CLOSED = store.closing_time !== current_hour;
+    const HAS_CLOSED = store.closing_time === current_hour;
   
     const RECENTLY_AFTER_CLOSING_HOUR = HAS_CLOSED && store.opening_time < current_hour;
   
@@ -28,7 +31,7 @@ type StoreProps = {
       : "";
   
     return (
-      <Box width={"100%"} >
+      <Box width={ width ?? "100%"  } >
         {/* Image and Tags Box */}
         <Box position={"relative"}>
           <Image

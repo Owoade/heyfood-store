@@ -14,7 +14,7 @@ function Cards() {
   return (
     <Wrapper>
       <Slider mt={"2em"}>
-        <Flex width={"1900px"} justifyContent={"space-between"}>
+        <Flex sx={{ transition: ".3s ease"}} width={"1900px"} justifyContent={"space-between"}>
           {cards.map((src) => (
             <Image
               borderRadius={"10px"}

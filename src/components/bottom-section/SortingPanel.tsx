@@ -14,21 +14,20 @@ import { ActiveParam, setActiveParams } from "redux/query.slice";
 
 type Props = {};
 
+export const sortParams = [
+  "Most Popular",
+  "Narest",
+  "Highest Rated",
+  "Newest",
+  "Most Rated",
+];
+
+export const _sortParams = sortParams
+  .map((_) => (_ === "Newest" ? "New Arrival" : _))
+  .map((_) => _.toLocaleLowerCase().split(" ").join("-"));
+
 const SortingPanel = (props: Props) => {
-  const dispatch = useDispatch();
-
-  const sortParams = [
-    "Most Popular",
-    "Narest",
-    "Highest Rated",
-    "Newest",
-    "Most Rated",
-  ];
-
-  const _sortParams = sortParams
-    .map((_) => (_ === "Newest" ? "New Arrival" : _))
-    .map((_) => _.toLocaleLowerCase().split(" ").join("-"));
-
+    const dispatch = useDispatch();
     console.log(_sortParams)
   return (
     <Box

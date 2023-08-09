@@ -4,6 +4,10 @@ import Slider from "@components/shared/Slider";
 import Flex from "@components/shared/Flex";
 import { IStore, stores } from "utils/mock-data";
 import { Store } from "./Store";
+import { useQuery } from "react-query";
+import { SORT_RESTURANT } from "utils/endpoints";
+import axios from "axios";
+import{ Carousel} from '@trendyol-js/react-carousel';
 
 type Props = {
   title: string;
@@ -11,6 +15,17 @@ type Props = {
 };
 
 function Stores({ title, category }: Props) {
+
+  const { data: response } = useQuery({
+    queryKey: category,
+    queryFn(){
+      return axios.post(SORT_RESTURANT, {
+        param: category
+      })
+    }
+  })
+
+  const result = (response?.data.data.result ?? []) as IStore[];
 
   return (
     <Box>
@@ -20,13 +35,14 @@ function Stores({ title, category }: Props) {
         {title}
       </Typography>
       <Slider>
-        <Flex width={`${(stores.length * 370)}px`} gap={"30px"}>
+        <Flex gap={"30px"} width={`${result.length*400}px`}>
           {" "}
-          {stores.map((store) => (
-            <Store store={store} key={store.name} />
+          {result.map((store) => (
+            <Store width="400px" store={store} key={store.name} />
           ))}{" "}
         </Flex>
       </Slider>
+     
     </Box>
   );
 }

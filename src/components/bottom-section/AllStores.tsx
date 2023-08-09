@@ -1,13 +1,27 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Flex from "@components/shared/Flex";
-import { stores } from "utils/mock-data";
+// import { stores } from "utils/mock-data";
 import { Store } from "./Store";
 import theme from "../../theme";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { GET_ALL_RESTURANTS } from "utils/endpoints";
+import { IStore } from "utils/mock-data";
 
 type Props = {};
 
 function AllStores({}: Props) {
+
+  const {  data } = useQuery({
+    queryKey: "All resturants",
+    queryFn(){
+      return axios.get(GET_ALL_RESTURANTS)
+    }
+  })
+
+  const resturants = (data?.data.data.result ?? []) as IStore[];
+
   return (
     <Box>
       <Typography
@@ -31,7 +45,7 @@ function AllStores({}: Props) {
           gridTemplateColumns: "repeat(1, 1fr)",
         }
       }}>
-        { stores.map( store => <Store store={store} key={store.name} />) }
+        { resturants.map( resturant => <Store store={resturant} key={resturant.name} />) }
       </Box>
     </Box>
   );

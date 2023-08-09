@@ -5,7 +5,8 @@ const initialState: { query: InitialState } = {
   query: {
     stores: [],
     active_param: null,
-    tags: []
+    tags: [],
+    search_key: ""
   },
 };
 
@@ -13,15 +14,16 @@ interface InitialState {
   stores: IStore[];
   active_param: ActiveParam;
   tags: string[];
+  search_key: string
 }
 
-type ActiveParam =
+export type ActiveParam =
   | "most-popular"
   | "still-opened"
   | "new-arrival"
   | "most-rated"
   | "highest-rated"  | 
-  "by-tags"
+  "by-tags"  | "search"
   | null;
 
 const querySlice = createSlice({
@@ -50,7 +52,6 @@ const querySlice = createSlice({
         state.query.tags.push(action.payload);
       }
     },
-
     removeTag(state, action: PayloadAction<string>) {
       const tags = state.query.tags;
       state.query.tags = tags.filter((_) => _ !== action.payload);
@@ -60,12 +61,16 @@ const querySlice = createSlice({
       state.query.active_param = null;
       state.query.stores = [];
       state.query.stores = [];
+    },
+    setSearchKey(state, action: PayloadAction<string>){
+      state.query.search_key = action.payload;
+      if( state.query.search_key !== "" ) state.query.active_param = "search";
     }
   
   },
 });
 
-export const { setStore, setActiveParams, setTags, addTag, removeTag, reset } =
+export const { setStore, setActiveParams, setTags, addTag, removeTag, reset, setSearchKey } =
   querySlice.actions;
 
 export default querySlice.reducer;
