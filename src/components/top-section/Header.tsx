@@ -27,7 +27,6 @@ import { _sortParams, sortParams } from "@components/bottom-section/SortingPanel
 import { ActiveParam, setActiveParams } from "redux/query-slice";
 import { useDispatch } from "react-redux";
 import useDisclosure from "hooks/disclosure";
-import Once from "checkout-once";
 
 type Props = {};
 
@@ -226,13 +225,22 @@ type DrawerProps = {
 }
 
 function CheckoutDrawer( {disclosure}:DrawerProps){
-  const once = new Once({
-    amount: 280000, // kobo Equivalence
-    successCallback(){
-      window.alert("Thank you for using HeyFood, We have recieved you order.");
-      disclosure.onClose();
-    }
-  })
+  // this was done due to dependency resolution conflict
+ async function handleClick(){
+
+    const Once = await import("checkout-once");
+
+    const once = new Once.default({
+      amount: 280000,
+      successCallback(){
+        alert("Thank you for using HeyFood, We have recieved your order");
+        disclosure.onClose()
+      }
+    })
+
+    once.checkout();
+
+ }
   return (
     <Drawer open={disclosure.state} onClose={disclosure.onClose} anchor="right">
         <Box width={"300"} bgcolor={"white"} p="1em">
@@ -277,9 +285,7 @@ function CheckoutDrawer( {disclosure}:DrawerProps){
               bgcolor: "black",
               color: "white"
             }}
-            onClick={()=> {
-              once.checkout() 
-            }}
+            onClick={()=> handleClick()}
             >
               Pay  ₦2800
             </Button>
