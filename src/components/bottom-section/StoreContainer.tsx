@@ -15,7 +15,7 @@ const StoreContainer = () => {
         },
       }}
     >
-      <Stores category="still-opened" title="Currently Opened" />
+      <Stores category="still-opened" title="Top picks" />
       <Stores category="new-arrival"title="New on HeyFood" />
       <AllStores />
     </Box>

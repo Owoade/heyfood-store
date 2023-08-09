@@ -16,11 +16,11 @@ type StoreProps = {
   export function Store({ store, width}: StoreProps ) {
     const date = new Date();
 
-    store.closing_time = store.closing_time ?? Infinity;
+    store.closing_time = store.closing_time ?? Infinity
   
     const current_hour = date.getHours();
   
-    const HAS_CLOSED = store.closing_time === current_hour;
+    const HAS_CLOSED = store.closing_time < current_hour || store.opening_time > current_hour ;
   
     const RECENTLY_AFTER_CLOSING_HOUR = HAS_CLOSED && store.opening_time < current_hour;
   
