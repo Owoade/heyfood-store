@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Box } from "@mui/material";
 import theme from "../../theme"
 import { useDispatch } from 'react-redux';
-import { setSearchKey } from 'redux/query.slice';
+import { setSearchKey } from 'redux/query-slice';
 
 type Props = {}
 

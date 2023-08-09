@@ -24,7 +24,7 @@ import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
 import {  FormControlLabel, Radio } from '@mui/material';
 import { _sortParams, sortParams } from "@components/bottom-section/SortingPanel";
-import { ActiveParam, setActiveParams } from "redux/query.slice";
+import { ActiveParam, setActiveParams } from "redux/query-slice";
 import { useDispatch } from "react-redux";
 import useDisclosure from "hooks/disclosure";
 import Once from "checkout-once";

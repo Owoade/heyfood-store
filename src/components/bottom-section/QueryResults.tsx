@@ -10,7 +10,7 @@ import { getQuery } from "../../redux/store";
 import axios from "axios";
 import { SEARCH_RESTURANT, SORT_RESTURANT, SORT_RESTURANT_BY_MENU } from "utils/endpoints";
 import { useQuery } from "react-query";
-import { reset } from "redux/query.slice";
+import { reset } from "redux/query-slice";
 
 type Props = {};
 

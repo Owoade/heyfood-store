@@ -10,7 +10,7 @@ import axios from "axios";
 import { GET_ALL_TAGS } from "utils/endpoints";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuery } from "../../redux/store"
-import { addTag, removeTag } from "redux/query.slice";
+import { addTag, removeTag } from "redux/query-slice";
 
 type Props = {};
 

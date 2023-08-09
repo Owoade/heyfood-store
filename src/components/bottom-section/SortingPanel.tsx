@@ -10,7 +10,7 @@ import Flex from "@components/shared/Flex";
 import SortIcon from "@mui/icons-material/Sort";
 import theme from "../../theme";
 import { useDispatch } from "react-redux";
-import { ActiveParam, setActiveParams } from "redux/query.slice";
+import { ActiveParam, setActiveParams } from "redux/query-slice";
 
 type Props = {};
 
