@@ -28,7 +28,7 @@ type StoreProps = {
       : "";
   
     return (
-      <Box width={"320px"} >
+      <Box width={"100%"} >
         {/* Image and Tags Box */}
         <Box position={"relative"}>
           <Image

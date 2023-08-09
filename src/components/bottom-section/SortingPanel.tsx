@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, RadioGroup, Radio, FormControlLabel } from "@mui/material"
 import Flex from '@components/shared/Flex';
 import SortIcon from '@mui/icons-material/Sort';
+import theme from "../../theme";
 
 type Props = {}
 
@@ -14,7 +15,15 @@ const SortingPanel = (props: Props) => {
         "Most Rated"
     ]
   return (
-    <Box height={"fit-content"} width={"200px"} position={"sticky"} top={"12%"}>
+    <Box sx={{
+      height: "fit-content",
+      width: "200px",
+      position: "sticky",
+      top: "12%",
+      [theme.breakpoints.down("sm")]: {
+        display: "none"
+      }
+    }} >
           <Typography variant="h5" fontWeight={"bolder"}>All Stores</Typography>
           <Typography my={"1em"} variant="body1">
             (186 Stores)

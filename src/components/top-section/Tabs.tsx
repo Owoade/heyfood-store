@@ -12,7 +12,6 @@ const Tabs = (props: Props) => {
   return (
     <Box 
     sx={{
-      borderTop: "1px solid #eeeeee",
       borderBottom: "1px solid #eeeeee",
       py: "1em",
       [theme.breakpoints.down("sm")]: {

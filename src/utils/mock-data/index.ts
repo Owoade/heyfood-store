@@ -90,6 +90,81 @@ export const tags: ITag[] = [
     is_taking_order: boolean;
   }
 
+  // 
+// app.get("/" , async(  req: Request ,res: Response, )=> {
+
+//   const stores = [
+//       {
+//         name: "Iya Meta - Bodija",
+//         image:
+//           "https://firebasestorage.googleapis.com/v0/b/heypay-e9f1f.appspot.com/o/food%2F2022-01-16_720x315.jpg?alt=media&token=148a4142-443d-43d2-87dd-a8bbb3a1c0fc",
+//         rating: 4,
+//         no_of_ratings: 2050,
+//         opening_time: 10,
+//         closing_time: Infinity,
+//         joined: 1672527600000,
+//         menu: ["pounded yam", "chicken", "goat meat", "rice", "beans"]
+//       },
+//       {
+//           name: "Nkwobi Village",
+//           image: "https://firebasestorage.googleapis.com/v0/b/heypay-e9f1f.appspot.com/o/food%2FIMG_0660_1000x437.jpg?alt=media&token=c9ee5efa-0645-4282-8538-9894886ae11a",
+//           rating: 3,
+//           no_of_ratings: 1000,
+//           opening_time: 6,
+//           closing_time: 19,
+//           is_taking_order: true,
+//           order_time: 1,
+//           joined: 1675206000000,
+//         menu: ["Goat Meat", "Grills", ],
+//       },
+//       {
+//           name: "The Place",
+//           image: "https://firebasestorage.googleapis.com/v0/b/heyfood-558b4.appspot.com/o/vendor_images%2FWhatsApp%20Image%202023-05-19%20at%207_1071x468_9krn_FFMjzXVvzphyEVee.jpg?alt=media&token=3295b823-5cad-4469-8175-aff3bb250119",
+//           rating: 4,
+//           no_of_ratings: 5600,
+//           opening_time: 9,
+//           menu: ["Goat Meat", "Soup ", "Chicken", "Dodo"],
+//           closing_time: Infinity,
+//           is_taking_order: true,
+//           joined:  1677625200000,
+
+//       },
+//       {
+//           name: "Makinde SF Spag",
+//           image: "https://firebasestorage.googleapis.com/v0/b/heyfood-558b4.appspot.com/o/vendor_images%2F00500-Spaghetti-thumb4-Bao_1600x700_xbNu1UArqZnnTqHVD2ENk.jpg?alt=media&token=a278b3d9-af1d-47dd-99cf-e8d5af5201bf",
+//           rating: 4,
+//           no_of_ratings: 5550,
+//           opening_time: 10,
+//           closing_time: 20,
+//           is_taking_order: true,
+//           order_time: 1,
+//           joined: 1680303600000,
+//           menu: ["Spaghetti", "Chicken", "Juice", "Ice Cream"],
+//       },
+//       {
+//           name: "Fasty!!",
+//           image: "https://firebasestorage.googleapis.com/v0/b/heyfood-558b4.appspot.com/o/vendor_images%2FWhatsApp%20Image%202023-07-07%20at%205_1023x447_VzNDzNlb2T9qzBCsakI6G.jpg?alt=media&token=702d0802-3bdd-4fd5-8921-cc7c1fa77c45",
+//           rating: 4,
+//           no_of_ratings: 3500,
+//           opening_time: 10,
+//           manages_delivery: true,
+//           closing_time: 6,
+//           is_taking_order: true,
+//           joined: 1682895600000,
+//           menu: ["Doughnuts",  "Sandwich","Shawarma",  "Pizza"],
+//       }
+        
+   
+//     ] as any[];
+
+//     const _stores = stores.map( ( _ )=> ({ ..._,_menu: _.menu.map( (__ : any)=> __.toLocaleLowerCase() ).join(" , "), menu: _.menu.map(( __: any )=> __.toLocaleLowerCase() )}))
+
+//     await Store.insertMany(_stores);
+
+//     res.send("It is done")
+
+// })
+
   export const stores: IStore[] = [
     {
       name: "Iya Merin - Bodija",

@@ -33,9 +33,11 @@ const Header = (props: Props) => {
       sx={{ transition: ".5s ease" }}
       top={"0px"}
       bgcolor={"white"}
+      pb={"1em"}
+      borderBottom= "1px solid #eeeeee"
     >
       <Wrapper>
-        <Flex py={"1em"} width={"100%"} justifyContent={"space-between"}>
+        <Flex pt={"1em"} width={"100%"} justifyContent={"space-between"}>
           {/* Logo, Menu and Location Group */}
           <Flex
             sx={{
