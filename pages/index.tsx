@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-      <Box height={"100vh"}>
+      <Box bgcolor={"white"} height={"100vh"}>
         <TopSection />
         <BottomSection />
         <Footer />

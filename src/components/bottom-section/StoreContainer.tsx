@@ -9,7 +9,7 @@ const StoreContainer = () => {
     <Box
       sx={{
         overflowX: "hidden",
-        width: "80%",
+        width: "100%",
         [theme.breakpoints.down("sm")]: {
           width: "100%",
         },

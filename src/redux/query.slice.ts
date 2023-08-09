@@ -21,7 +21,7 @@ type ActiveParam =
   | "new-arrival"
   | "most-rated"
   | "highest-rated"  | 
-  "tags"
+  "by-tags"
   | null;
 
 const querySlice = createSlice({
@@ -46,7 +46,7 @@ const querySlice = createSlice({
       if( tags.length === 5 ){
          state.query.tags = tags
       }else{
-        state.query.active_param="tags"
+        state.query.active_param="by-tags"
         state.query.tags.push(action.payload);
       }
     },

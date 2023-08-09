@@ -22,10 +22,6 @@ const BottomSection = () => {
         "Most Rated"
     ]
 
-    if( query.active_param ){
-      return <QueryResults />
-    }
-
   return (
     <Flex 
       sx={{
@@ -38,8 +34,8 @@ const BottomSection = () => {
         },
       }}
     >
-        <SortingPanel />
-        <StoreContainer />
+        {( !query.active_param || ( query.active_param && query.active_param !== "by-tags")) && <SortingPanel />}
+       { query.active_param ? <QueryResults /> : <StoreContainer />}
     </Flex>
   );
 };
