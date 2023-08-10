@@ -8,6 +8,7 @@ import { useQuery } from "react-query";
 import { SORT_RESTURANT } from "utils/endpoints";
 import axios from "axios";
 import{ Carousel} from '@trendyol-js/react-carousel';
+import { SkeletonLoader } from "./QueryResults";
 
 type Props = {
   title: string;
@@ -16,7 +17,7 @@ type Props = {
 
 function Stores({ title, category }: Props) {
 
-  const { data: response } = useQuery({
+  const { data: response, isFetched, isLoading } = useQuery({
     queryKey: category,
     queryFn(){
       return axios.post(SORT_RESTURANT, {
@@ -34,14 +35,19 @@ function Stores({ title, category }: Props) {
       }} fontWeight={"bold"} variant="h4" my={"1em"}>
         {title}
       </Typography>
-      <Slider>
+      { isFetched && !isLoading && <Slider>
         <Flex gap={"30px"} width={`${result.length*400}px`}>
           {" "}
           {result.map((store) => (
             <Store width="400px" store={store} key={store.name} />
           ))}{" "}
         </Flex>
-      </Slider>
+      </Slider>}
+
+      { isLoading && <Slider>
+        <SkeletonLoader />
+        </Slider>}
+
      
     </Box>
   );

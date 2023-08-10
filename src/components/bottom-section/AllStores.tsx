@@ -8,12 +8,13 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { GET_ALL_RESTURANTS } from "utils/endpoints";
 import { IStore } from "utils/mock-data";
+import { SkeletonLoader } from "./QueryResults";
 
 type Props = {};
 
 function AllStores({}: Props) {
 
-  const {  data } = useQuery({
+  const {  data, isFetched, isLoading } = useQuery({
     queryKey: "All resturants",
     queryFn(){
       return axios.get(GET_ALL_RESTURANTS)
@@ -34,6 +35,7 @@ function AllStores({}: Props) {
       >
         All Resturants
       </Typography>
+      { !isLoading && isFetched &&
       <Box sx={{
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
@@ -47,6 +49,10 @@ function AllStores({}: Props) {
       }}>
         { resturants.map( resturant => <Store store={resturant} key={resturant.name} />) }
       </Box>
+      }
+
+      { isLoading && <SkeletonLoader responsive />}
+
     </Box>
   );
 }

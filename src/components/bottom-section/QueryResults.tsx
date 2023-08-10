@@ -111,37 +111,45 @@ function QueryResults({}: Props) {
         Oops! No Food or Restaurant Found
         </Typography>}
 
-        { isLoading && <SkeletonLoader />}
+        { isLoading && <SkeletonLoader responsive />}
     </Box>
     // </Wrapper>
   );
 }
 
-function SkeletonLoader(){
+export function SkeletonLoader({ responsive }: { responsive?: boolean }){
   return (
-     <Box sx={{
-      display: "grid",
-      gridTemplateColumns: "repeat(4, 1fr)",
-      gap: "2em",
-      mt: "2em",
-      [theme.breakpoints.down("lg")]: {
-        gridTemplateColumns: "repeat(3, 1fr)",
-      },
-      [theme.breakpoints.down("md")]: {
-        gridTemplateColumns: "repeat(2, 1fr)",
-      },
-      [theme.breakpoints.down("sm")]: {
-        gridTemplateColumns: "repeat(1, 1fr)",
-      },
-     }}>
-        {[1,2,3].map( _ => <Card key={Date.now()} />)}
-     </Box>
-   
-  )
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: "2em",
+        mt: "2em",
+        overflowY: "hidden",
+        ...(responsive
+          ? {
+              [theme.breakpoints.down("lg")]: {
+                gridTemplateColumns: "repeat(3, 1fr)",
+              },
+              [theme.breakpoints.down("md")]: {
+                gridTemplateColumns: "repeat(2, 1fr)",
+              },
+              [theme.breakpoints.down("sm")]: {
+                gridTemplateColumns: "repeat(1, 1fr)",
+              },
+            }
+          : {}),
+      }}
+    >
+      {[1, 2, 3].map((_) => (
+        <Card key={Date.now()} />
+      ))}
+    </Box>
+  );
 
   function Card(){
     return (
-      <Box>
+      <Box { ...( !responsive ? { width: "400px"} : {} )}>
           <Skeleton sx={{ borderRadius: "8px"}} width={"100%"} height="200px" variant="rectangular" />
           <Skeleton sx={{ my: "1em", borderRadius: "8px" }} width={"40%"} />
           <Skeleton  sx={{ borderRadius: "8px"}}   width={"60%"} />
